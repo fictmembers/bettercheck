@@ -1,0 +1,39 @@
+<% provide(:title, 'Sign up') %>
+<%= render "layouts/header" %>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+    <%= form_for(@user) do |f| %>
+      <%= render 'layouts/errors_user_registration' %>
+
+      <div class="input-group" >  
+        <span class="input-group-addon" id="sizing-addon1">
+          <span class="glyphicon glyphicon-user" aria-hidden="true"> </span>
+        </span>   
+        <%= f.text_field :name, class: "form-control", placeholder: "Username"%>      
+      </div>
+
+      <div class="input-group" >  
+        <span class="input-group-addon" id="sizing-addon1">
+          <span class="glyphicon glyphicon-envelope" aria-hidden="true"> </span>
+        </span>   
+        <%= f.text_field :email, class: "form-control", placeholder: "Username"%>      
+      </div>
+
+      <div class="input-group" >  
+        <span class="input-group-addon" id="sizing-addon1">
+          <span class="glyphicon glyphicon-lock" aria-hidden="true"> </span>
+        </span>   
+        <%= f.password_field :password,  class: "form-control", placeholder: "Password"%>      
+      </div>
+
+      <div class="input-group" >  
+        <span class="input-group-addon" id="sizing-addon1">
+          <span class="glyphicon glyphicon-check" aria-hidden="true"> </span>
+        </span>   
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password confirmation"%>      
+      </div>
+
+      <div class="input-group">      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %></div>
+    <% end %>
+  </div>
+</div>
