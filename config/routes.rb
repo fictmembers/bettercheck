@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root :to => "places#new"
+
   resources :places
   resources :users
 
