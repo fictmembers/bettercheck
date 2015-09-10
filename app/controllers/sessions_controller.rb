@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
   protect_from_forgery with: :exception
-  include SessionsHelper
+
 	
   def new
+
   end
 
   def create
