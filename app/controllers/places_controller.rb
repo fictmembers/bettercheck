@@ -1,10 +1,12 @@
 class PlacesController < ApplicationController
+  before_action :signed_in_user
+
   def new
   	@place = Place.new()
   end
 
   def create
-  	@place = Place.new(places_require)
+  	@place = current_user.places.build(places_require)
   	if @place.save
       flash[:success] = "New place succefully added!"
   		redirect_to @place

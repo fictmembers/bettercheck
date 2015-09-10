@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
+  has_many :places, dependent: :destroy
+
   before_save { self.email = email.downcase }
   before_create :create_remember_token
+  
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   has_secure_password

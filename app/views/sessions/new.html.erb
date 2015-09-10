@@ -18,16 +18,15 @@
 	        </p>   
 
       		<p>
-      		    <div class="input-group" >  
+      		  <div class="input-group" >  
         			<span class="input-group-addon" id="sizing-addon1">
           				<span class="glyphicon glyphicon-lock" aria-hidden="true"> </span>
        				</span>   
         			<%= f.password_field :password, class: "form-control", placeholder: "Password"%>     
       			</div>
-
 	        </p>  
 
-			<p><%= f.submit "Log In", class: "btn btn-large btn-primary" %>									 </p>
+			<p><%= f.submit "Log In", class: "btn btn-large btn-primary" %> </p>
 			<p class="text-center" >New user? <%= link_to "Sign up now!", signup_path %></p>
 		</div>
     <% end %>

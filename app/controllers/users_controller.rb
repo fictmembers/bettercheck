@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :signed_in_user, only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
+
   def new
   	@user = User.new()
   end
@@ -7,11 +10,16 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in(@user)
-      flash[:success] = "Welcome to the Better Check!"
+      flash[:success] = "Welcome to the 'Better Check!'"
       redirect_to @user
     else
       render 'new'
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @places = @user.places
   end
 
   private
@@ -21,7 +29,8 @@ class UsersController < ApplicationController
                                    :password_confirmation)
   end
 
-  def show
-  	@user = User.find(params[:id])
+  def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
   end
 end
