@@ -6,6 +6,7 @@ class PlacesController < ApplicationController
   def create
   	@place = Place.new(places_require)
   	if @place.save
+      flash[:success] = "New place succefully added!"
   		redirect_to @place
   	else
   		render "new"
