@@ -19,7 +19,8 @@
 
             <p><%= f.submit "Add place", class: "btn btn-large btn-primary" %>                                </p>
           <% else %>
-              You not registred yet! <%= link_to "Register now!", signup_path %>
+            <h3>Error adding new place:</h3>
+            You not registred yet! <%= link_to "Register now!", signup_path %>
           <% end %>
 		    </div>
     <% end %>
