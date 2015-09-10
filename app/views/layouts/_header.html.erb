@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">BC</a>
+      <%= link_to "BC", root_path, class: "navbar-brand" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -34,6 +34,7 @@
             <span class="caret"></span></a>
           <ul class="dropdown-menu">
 <% if signed_in? %>
+                  <li><%= link_to "Add place", addplace_path %>
                   <li><%= link_to "View", current_user %> </li>
                   <li><%= link_to "Edit", current_user %> </li>
 <% else %>
