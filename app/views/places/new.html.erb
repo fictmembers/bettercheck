@@ -6,18 +6,24 @@
 
       	<div class="well well-sm">
 
-      		<p><%= image_tag "newplace.jpg", class: "img-responsive img-rounded" %>				      		 </p>
-      		<p><h3>New place</h3></p>
+          <% if signed_in? %>
+            <p><%= image_tag "newplace.jpg", class: "img-responsive img-rounded" %>                           </p>
+            <p><h3>New place</h3></p>
 
-      		<p>      <%= render 'layouts/errors_place_registration' %>     </p>
+            <p>      <%= render 'layouts/errors_place_registration' %>     </p>
 
-	        <p><%= f.text_field :place, 	 class: "form-control", placeholder: "Place"%>   				 </p>   
-	        <p><%= f.text_field :adress,  	 class: "form-control", placeholder: "Adress"%>     			 </p>
-	        <p><%= f.text_field :hashtag, 	 class: "form-control", resize: "none", placeholder: "Hashtag"%> </p>    
-	        <p><%= f.text_area  :description,class: "form-control", placeholder: "Description"%> 			 </p>    
+            <p><%= f.text_field :place,      class: "form-control", placeholder: "Place"%>                    </p>   
+            <p><%= f.text_field :adress,     class: "form-control", placeholder: "Adress"%>                   </p>
+            <p><%= f.text_field :hashtag,    class: "form-control", resize: "none", placeholder: "Hashtag"%>  </p>    
+            <p><%= f.text_area  :description,class: "form-control", placeholder: "Description"%>              </p>    
 
-			<p><%= f.submit "Add place", class: "btn btn-large btn-primary" %>								 </p>
-		</div>
+            <p><%= f.submit "Add place", class: "btn btn-large btn-primary" %>                                </p>
+          <% else %>
+              You not registred yet! <%= link_to "Register now!", signup_path %>
+          <% end %>
+		    </div>
     <% end %>
   </div>
 </div>
+
+
