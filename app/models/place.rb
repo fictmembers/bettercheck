@@ -7,4 +7,6 @@ class Place < ActiveRecord::Base
   validates :description, 	presence: true
   validates :adress,  		presence: true
   validates :user_id, presence: true
+  validates :lat, presence: true
+  validates :lon, presence: true
 end

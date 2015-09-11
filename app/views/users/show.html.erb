@@ -7,11 +7,14 @@
 	    	<% @places.each do |place| %>
 	    		<div class="panel panel-default">
   					<div class="panel-heading">
-    					<h3 class="panel-title"><%= place.place %></h3>
+    					<h3 class="panel-title"><%= link_to place.place, place %></h3>
   					</div>
   					<div class="panel-body">
-  						<p>Short description: <%= place.description %>				</p>
-    					<p>Added <%= time_ago_in_words(place.created_at) %> ago.	</p>
+              <p><%= image_tag Instagram.media_search(place.lat, place.lon).first.images.standard_resolution.url , class: "img-rounded img-responsive" %> </p>
+
+              <ul class="list-group">
+                <li class="list-group-item">Description: <%= place.description %></li>
+              </ul>
   					</div>
   				</div>
 	        <% end %>
