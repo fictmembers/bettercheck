@@ -5,14 +5,14 @@
 	<div class="col-xs-12  col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
 	    <div class="well well-sm">
 			<p><h3><%= @place.place %></h3></p>
-       		<p><%= image_tag Instagram.media_search(@place.lat, @place.lon).first.images.standard_resolution.url , class: "img-thumbnail img-responsive" %></p>
+       		<p><%= image_tag Instagram.media_search(@place.latitude, @place.longitude).first.images.standard_resolution.url , class: "img-thumbnail img-responsive" %></p>
 
        		<p>
 	       		<div class="panel panel-default">
 	  				 <ul class="list-group">
 					    <li class="list-group-item">Description: <%= @place.description %></li>
-					    <li class="list-group-item">GPS coordinates: <%= @place.lat %>, <%= @place.lon %></li>
-					    <li class="list-group-item">Adress: <%= @place.adress %></li>
+					    <li class="list-group-item">GPS coordinates: <%= @place.latitude %>, <%= @place.longitude %></li>
+					    <li class="list-group-item">Address: <%= @place.address %></li>
 					    <li class="list-group-item">Added <%= time_ago_in_words(@place.created_at) %> ago.</li>
   					</ul>
 				</div>

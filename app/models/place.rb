@@ -5,8 +5,8 @@ class Place < ActiveRecord::Base
 
   validates :place,  	    presence: true,   length: { maximum: 50 }
   validates :description, 	presence: true
-  validates :adress,  		presence: true
+  validates :address,  		presence: true
   validates :user_id, presence: true
-  validates :lat, presence: true
-  validates :lon, presence: true
+  validates :latitude, presence: true
+  validates :longitude, presence: true
 end
