@@ -17,6 +17,36 @@
   					</ul>
 				</div>
 			</p>
+
+			<p>
+				<%= button_to "Leave comment", newcomment_path, :method => :get, class: "btn btn-primary" %>
+			</p>
 		</div>
   	</div>
+</div>
+
+<div class="row">  
+	<div class="col-xs-12  col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+    	<% if @comments != nil %>
+	    	<% @comments.each do |com| %>
+	    		<% if 1 <= com.score and com.score < 3 %>
+	    			<div class="panel panel-danger">
+	    		<% elsif 3 <= com.score and com.score < 6 %>
+	    			<div class="panel panel-warning" %>
+	    		<% else %>
+	    			<div class="panel panel-success" %>
+	    		<% end %>
+	    		
+  					<div class="panel-heading">
+    					<h3 class="panel-title"><%= com.user %></h3>
+  					</div>
+  					<div class="panel-body">
+              <p>Grade: <%= com.score %></p>
+              <ul class="list-group">
+                <li class="list-group-item">Comment: <%= com.comment %></li>
+              </ul>
+  					</div>
+  				</div>
+	        <% end %>
+	    <% end %>
 </div>

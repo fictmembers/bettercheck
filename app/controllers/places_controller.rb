@@ -15,8 +15,14 @@ class PlacesController < ApplicationController
   	end
   end
 
+  def index
+    @place = Place.all
+  end
+
   def show
   	@place = Place.find(params[:id])
+    @comments = Comment.where("place_id = ?", @place.id)
+    session[:place] = @place.id
   end
 
   private def places_require
