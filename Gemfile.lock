@@ -65,6 +65,7 @@ GEM
     geocoder (1.2.11)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
     hashie (3.4.2)
     i18n (0.7.0)
     instagram (1.1.6)
@@ -168,6 +169,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   geocoder
+  gmaps4rails
   instagram
   jbuilder (~> 2.0)
   jquery-rails

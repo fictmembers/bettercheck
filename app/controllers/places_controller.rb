@@ -23,6 +23,12 @@ class PlacesController < ApplicationController
   	@place = Place.find(params[:id])
     @comments = Comment.where("place_id = ?", @place.id)
     session[:place] = @place.id
+
+    @hash = Gmaps4rails.build_markers(@place) do |pl, marker|
+      marker.lat pl.latitude
+      marker.lng pl.longitude
+      marker.infowindow pl.place
+    end
   end
 
   private def places_require
