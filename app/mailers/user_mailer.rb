@@ -1,8 +1,8 @@
 class UserMailer < ApplicationMailer
-	def registration_confirmation(user)
-		recipients  user.email
-		from	    "i-mozgolom@ukr.net"
-		subject 	"Thank you for Registring!"
-		body 		:user => user
-	end
+  default from: "i-mozgolom@ukr.net"
+ 
+  def registration_confirmation(user)
+    @user = user
+    mail(to: @user.email, subject: 'Welcome to My Awesome Site', :user => user)
+  end
 end
