@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in(@user)
-      # UserMailer.registration_confirmation(@user).deliver_now
+      UserMailer.registration_confirmation(@user).deliver_now
       flash[:success] = "Welcome to the 'Better Check!'"
       redirect_to @user
     else
